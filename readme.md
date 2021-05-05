@@ -7,6 +7,8 @@ $ cmake ..
 $ make
 ```
 
+./DisplayImage inputfile1 inputfile2 outputfile
+
 ```bash
-$ ./DisplayImage figure/map4.1.png figure/map4.2.png result/map4.pgm
+$ ./DisplayImage figure/map2.1.pgm figure/map2.2.pgm result/output.pgm
 ```
