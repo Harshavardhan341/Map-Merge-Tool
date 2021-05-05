@@ -31,7 +31,7 @@ imwrite_('debug.pgm'): can't write data: OpenCV(4.1.1) /home/nvidia/host/build_o
 ^C
 ```
 ## Result
-![Screenshot from 2021-05-05 16-00-53](https://user-images.githubusercontent.com/52307432/117106967-c6290a00-adbb-11eb-9c0d-34a4b076ee35.png)
+![117106967-c6290a00-adbb-11eb-9c0d-34a4b076ee35](https://user-images.githubusercontent.com/52307432/117110067-929cae80-adc0-11eb-83cb-d5ccc30ede20.png)
 
 ![Screenshot from 2021-05-05 16-01-19](https://user-images.githubusercontent.com/52307432/117107003-d80aad00-adbb-11eb-9d4c-1b53bc453d72.png)
 
