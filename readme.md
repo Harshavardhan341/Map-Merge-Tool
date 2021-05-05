@@ -1,6 +1,12 @@
-## **Map Merge Tool**
+# **Map Merge Tool**
 
-#### Instructions to Run:
-	g++ -c mapmerge.cpp
-	g++ main.cpp mapmerge.o `pkg-config opencv --cflags --libs`
-	./a.out input1.pgm input2.pgm output.pgm
+## Instructions to Run:
+```bash
+$ cd build/
+$ cmake ..
+$ make
+```
+
+```bash
+$ ./DisplayImage figure/map4.1.png figure/map4.2.png result/map4.pgm
+```
