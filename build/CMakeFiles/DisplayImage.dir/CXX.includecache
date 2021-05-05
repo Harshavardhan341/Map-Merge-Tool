@@ -28,6 +28,12 @@ cstdlib
 unistd.h
 -
 
+/home/ramune/catkin_ws/src/Map-Merge-Tool/mapmerge.cpp
+mapmerge.h
+/home/ramune/catkin_ws/src/Map-Merge-Tool/mapmerge.h
+math.h
+/home/ramune/catkin_ws/src/Map-Merge-Tool/math.h
+
 /home/ramune/catkin_ws/src/Map-Merge-Tool/mapmerge.h
 iostream
 -
@@ -36,10 +42,6 @@ stdio.h
 math.h
 -
 vector
--
-opencv/cxcore.h
--
-opencv/highgui.h
 -
 opencv2/opencv.hpp
 -

@@ -9,10 +9,7 @@ StitchedMap::StitchedMap(Mat &img1, Mat &img2, float max_pairwise_distance)
   image2 = img2.clone();
 
   // create feature detector set.
-  // ORB 特徴量の検出器をインスタンス化
   auto detector = cv::ORB::create();
-  //cv::OrbFeatureDetector detector;
-  //cv::OrbDescriptorExtractor dexc;
   Ptr<DescriptorExtractor> dexc = ORB::create();
   BFMatcher dematc(NORM_HAMMING, false);
 
