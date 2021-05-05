@@ -1,4 +1,3 @@
-
 #include "mapmerge.h"
 #include "math.h"
 
