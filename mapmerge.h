@@ -1,9 +1,17 @@
 #ifndef MAPMERGE_H
 #define MAPMERGE_H
 
+#include <iostream>
 #include <stdio.h>
 #include <math.h>
-#include <opencv/cv.h>
+#include <vector>
+//#include <opencv/cv.h>
+/*#include <opencv/cv.h> 
+#include <opencv/cxcore.h>
+#include <opencv/highgui.h>*/
+#include <opencv2/opencv.hpp>
+#include <opencv2/core.hpp>
+#include <opencv2/core.hpp>
 
 using namespace cv;
 using namespace std;
@@ -14,11 +22,11 @@ public:
   StitchedMap(Mat &im1, Mat &im2, float max_distance=5.);
   ~StitchedMap();
 
-  Mat get_debug();
-  Mat get_stitch();
+  cv::Mat get_debug();
+  cv::Mat get_stitch();
 
-  Mat H; // transformation matrix
-  Mat image1, image2,
+  cv::Mat H; // transformation matrix
+  cv::Mat image1, image2,
       dscv1, dscv2;
 
   vector<KeyPoint> kpv1,kpv2;

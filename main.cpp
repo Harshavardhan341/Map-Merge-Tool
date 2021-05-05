@@ -2,7 +2,11 @@
 #include <string>
 #include <iostream>
 #include <algorithm>
-#include <opencv/highgui.h>
+#include <opencv2/opencv.hpp>
+#include <opencv2/core.hpp>
+#include <opencv2/core.hpp>
+//#include <opencv2/highgui.h>
+#include "opencv2/highgui/highgui_c.h"
 #include "mapmerge.h"
 #include <cstdlib>
 #include <unistd.h>
@@ -24,13 +28,18 @@ int main(int argc, char** argv)
     cerr << "error: format <inputfile1> <inputfile2> <outputfile>" << endl;
     exit(-1);
   }
-  setenv("ROS_MASTER_URI", "http://192.168.0.110:11311", true);
+  /*setenv("ROS_MASTER_URI", "http://192.168.0.110:11311", true);
   system("echo $ROS_MASTER_URI");
   system("rosrun map_server map_saver -f map110");
   
   setenv("ROS_MASTER_URI", "http://192.168.0.107:11311", true);
   system("echo $ROS_MASTER_URI");
+  system("rosrun map_server map_saver -f map107");*/
+  system("echo $ROS_MASTER_URI");
+  system("rosrun map_server map_saver -f map110");
+  system("echo $ROS_MASTER_URI");
   system("rosrun map_server map_saver -f map107");
+  
   infiles.push_back(argv[1]);
   infiles.push_back(argv[2]);
   outfile = argv[3];

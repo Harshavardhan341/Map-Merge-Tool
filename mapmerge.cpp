@@ -9,17 +9,20 @@ StitchedMap::StitchedMap(Mat &img1, Mat &img2, float max_pairwise_distance)
   image2 = img2.clone();
 
   // create feature detector set.
-  OrbFeatureDetector detector;
-  OrbDescriptorExtractor dexc;
+  // ORB 特徴量の検出器をインスタンス化
+  auto detector = cv::ORB::create();
+  //cv::OrbFeatureDetector detector;
+  //cv::OrbDescriptorExtractor dexc;
+  Ptr<DescriptorExtractor> dexc = ORB::create();
   BFMatcher dematc(NORM_HAMMING, false);
 
   // 1. extract keypoints
-  detector.detect(image1, kpv1);
-  detector.detect(image2, kpv2);
+  detector->detect(image1, kpv1);
+  detector->detect(image2, kpv2);
 
   // 2. extract descriptors
-  dexc.compute(image1, kpv1, dscv1);
-  dexc.compute(image2, kpv2, dscv2);
+  dexc->compute(image1, kpv1, dscv1);
+  dexc->compute(image2, kpv2, dscv2);
 
   // 3. match keypoints
   dematc.match(dscv1, dscv2, matches);
