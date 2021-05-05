@@ -61,3 +61,12 @@ origin: マップの左下端の座標(x,y,θ)
 occupied_thresh: この数値より大きいところを障害物とみなす
 free_thresh: この数値より小さいところをフリースペースとみなす
 negate: 白黒反転させるかどうか
+
+```yaml
+image: output.pgm
+resolution: 0.050000
+origin: [-10.000000, -10.000000, 0.000000]
+negate: 0
+occupied_thresh: 0.65
+free_thresh: 0.196
+```
