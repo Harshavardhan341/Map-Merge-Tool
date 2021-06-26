@@ -12,8 +12,7 @@
 using namespace cv;
 using namespace std;
 
-// Referrence
-// http://independence-sys.net/main/?p=2632
+// <Referrence> http://independence-sys.net/main/?p=2632
 class StitchedMap
 {
 public:
@@ -39,9 +38,17 @@ public:
   // Variable for storing feature point information
   vector<KeyPoint> kpv1;
   vector<KeyPoint> kpv2;
-  vector<KeyPoint> fil1,fil2;
-  vector<Point2f>  coord1,coord2;
 
+  // Store the keypoints of query(image1)
+  vector<KeyPoint> fil1;
+  // Store the keypoints of query(image2)
+  vector<KeyPoint> fil2;
+
+  // Store the keypoint coordinates of query(image1)
+  vector<Point2f> coord1;
+  // Store the keypoint coordinates of train(image2)
+  vector<Point2f> coord2;
+  
   // Variable to store matching information of feature points
   vector<DMatch>   matches;
 

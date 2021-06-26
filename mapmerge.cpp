@@ -9,8 +9,10 @@ StitchedMap::StitchedMap(Mat &img1, Mat &img2, float max_pairwise_distance)
 
   // create feature detector set.
   auto detector = cv::ORB::create();
+  // Creating a DescriptionExtractor object
   Ptr<DescriptorExtractor> dexc = ORB::create();
-  BFMatcher dematc(NORM_HAMMING, false);
+  //BFMatcher dematc(NORM_HAMMING, false);
+  BFMatcher dematc(NORM_HAMMING, true);
 
   // 1. extract keypoints
   detector->detect(image1, kpv1);
@@ -20,33 +22,72 @@ StitchedMap::StitchedMap(Mat &img1, Mat &img2, float max_pairwise_distance)
   dexc->compute(image1, kpv1, dscv1);
   dexc->compute(image2, kpv2, dscv2);
 
-  // 3. match keypoints
+  // 3. match keypoints(Image of querying (querying) dscv2 for features similar to dscv1)
   dematc.match(dscv1, dscv2, matches);
 
   // 4. find matching point pairs with same distance in both images
-  for (size_t i=0; i<(int)matches.size(); i++) {
+  for (size_t i = 0; i < (int)matches.size(); i++) {
+    /*
+    * ***********************************************************************
+    * matches -> list of objects of type DMatch
+    * DMatch.distance -> distance between feature descriptors(The lower the distance, the better the matching)
+    * DMatch.trainIdx -> Index of the descriptor in the training descriptor(reference data) 
+    * DMatch.queryIdx -> Index of the descriptor in the query descripto(search data)
+    * DMatch.imgIdx -> Index of the training image
+    * <Reference https://qiita.com/komiya_____/items/c024e38959e389442dd0>
+    * ***********************************************************************
+    */
+    /*
+      The target image for finding feature points where query is the axis image 
+      and train is similar to query. In this case, image1 is query and image2 is train.
+    */
     KeyPoint a1 = kpv1[matches[i].queryIdx],
              b1 = kpv2[matches[i].trainIdx];
-
+    
+    /*
+      Select feature points one by one in order, and if their Hamming distance 
+      is more than 30, do the following. 
+      Otherwise, return to the for loop without executing the following.
+    */
     if (matches[i].distance > 30)
       continue;
 
-    for (size_t j=0; j<matches.size(); j++) {
+    // Compare selected feature points with all feature points
+    for (size_t j = 0; j < matches.size(); j++) {
       KeyPoint a2 = kpv1[matches[j].queryIdx],
                b2 = kpv2[matches[j].trainIdx];
 
       if (matches[j].distance > 30)
         continue;
-
+      
+      /*
+      * ***********************************************************************
+      * The Keypoint object has the following attributes
+      * pt: Coordinates of the keypoint
+      * size: Diameter of the key area around the keypoint
+      * angle: The calculated direction of the keypoint (or -1 if it cannot be calculated)
+      * response: The response when the strongest keypoint is selected.
+      * octave: octave from which the keypoint is extracted (pyramid hierarchy)
+      * class_id: Object class
+      * <Reference https://wonderfuru.com/opencv%E3%81%A7%E7%94%BB%E5%83%8F%E3%83%9E%E3%83%83%E3%83%81%E3%83%B3%E3%82%B0%E3%82%92%E3%81%99%E3%82%8B/>
+      * ***********************************************************************
+      */
+      /*
+        For each selected feature point, calculate the pairwise distance 
+        to all feature points, and if it is greater than or equal to max_pairwise_distance 
+        or zero, return to the inner for loop.
+      */
       if ( fabs(norm(a1.pt-a2.pt) - norm(b1.pt-b2.pt)) > max_pairwise_distance ||
            fabs(norm(a1.pt-a2.pt) - norm(b1.pt-b2.pt)) == 0)
         continue;
-
+      
+      // Stores keypoint coordinates.
       coord1.push_back(a1.pt);
       coord1.push_back(a2.pt);
       coord2.push_back(b1.pt);
       coord2.push_back(b2.pt);
-
+      
+      // Store keypoints
       fil1.push_back(a1);
       fil1.push_back(a2);
       fil2.push_back(b1);
