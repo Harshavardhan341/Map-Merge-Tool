@@ -123,6 +123,19 @@ DisplayImage/fast:
 	$(MAKE) -f CMakeFiles/DisplayImage.dir/build.make CMakeFiles/DisplayImage.dir/build
 .PHONY : DisplayImage/fast
 
+#=============================================================================
+# Target rules for targets named ResizeImage
+
+# Build rule for target.
+ResizeImage: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 ResizeImage
+.PHONY : ResizeImage
+
+# fast build rule for target.
+ResizeImage/fast:
+	$(MAKE) -f CMakeFiles/ResizeImage.dir/build.make CMakeFiles/ResizeImage.dir/build
+.PHONY : ResizeImage/fast
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -177,6 +190,33 @@ mapmerge.cpp.s:
 	$(MAKE) -f CMakeFiles/DisplayImage.dir/build.make CMakeFiles/DisplayImage.dir/mapmerge.cpp.s
 .PHONY : mapmerge.cpp.s
 
+resize_image.o: resize_image.cpp.o
+
+.PHONY : resize_image.o
+
+# target to build an object file
+resize_image.cpp.o:
+	$(MAKE) -f CMakeFiles/ResizeImage.dir/build.make CMakeFiles/ResizeImage.dir/resize_image.cpp.o
+.PHONY : resize_image.cpp.o
+
+resize_image.i: resize_image.cpp.i
+
+.PHONY : resize_image.i
+
+# target to preprocess a source file
+resize_image.cpp.i:
+	$(MAKE) -f CMakeFiles/ResizeImage.dir/build.make CMakeFiles/ResizeImage.dir/resize_image.cpp.i
+.PHONY : resize_image.cpp.i
+
+resize_image.s: resize_image.cpp.s
+
+.PHONY : resize_image.s
+
+# target to generate assembly for a file
+resize_image.cpp.s:
+	$(MAKE) -f CMakeFiles/ResizeImage.dir/build.make CMakeFiles/ResizeImage.dir/resize_image.cpp.s
+.PHONY : resize_image.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -184,14 +224,18 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
-	@echo "... DisplayImage"
 	@echo "... edit_cache"
+	@echo "... DisplayImage"
+	@echo "... ResizeImage"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
 	@echo "... mapmerge.o"
 	@echo "... mapmerge.i"
 	@echo "... mapmerge.s"
+	@echo "... resize_image.o"
+	@echo "... resize_image.i"
+	@echo "... resize_image.s"
 .PHONY : help
 
 

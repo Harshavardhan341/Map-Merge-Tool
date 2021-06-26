@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/ramune/catkin_ws/src/Map-Merge-Tool/resize_image.cpp
+iostream
+-
+stdio.h
+-
+math.h
+-
+vector
+-
+opencv2/opencv.hpp
+-
+opencv2/core.hpp
+-
+opencv2/core.hpp
+-
+opencv2/highgui/highgui_c.h
+/home/ramune/catkin_ws/src/Map-Merge-Tool/opencv2/highgui/highgui_c.h
+cstdlib
+-
+unistd.h
+-
+

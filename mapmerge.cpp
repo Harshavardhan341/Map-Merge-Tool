@@ -6,6 +6,8 @@ StitchedMap::StitchedMap(Mat &img1, Mat &img2, float max_pairwise_distance, floa
   // load images, TODO: check that they're grayscale and Full Image Copy
   image1 = img1.clone();
   image2 = img2.clone();
+  
+  //print(image1);
 
   // create feature detector set.
   auto detector = cv::ORB::create();

@@ -18,20 +18,22 @@ int main(int argc, char** argv)
     bool verbose = true;
     string outfile = "final.pgm";
     vector<string> infiles;
+
+    /*
+      About max_pairwise_distance
+      In the default image, anything less than 0.5 will cause a core dump or an error.
+      On the other hand, there is no upper limit and it can be as large as you like.
+
+      About matches_threshold
+      In the default image, anything less than 20 will cause a core dump or an error.
+      On the other hand, there is no upper limit and it can be as large as you want.
+    */
     //float max_pairwise_distance = 5.0;
     //float matches_threshold = 30.0;
     
-    /*
-      max_pairwise_distanceについて
-      デェフォルトの画像だと0.5以下にするとコアダンプやエラーが起きる。
-      逆に上限値は無くいくらでも大きく出来る。
-
-      matches_thresholdについて
-      デェフォルトの画像だと20以下にするとコアダンプやエラーが起きる。
-      逆に上限値は無くいくらでも大きく出来る。
-    */
-    float max_pairwise_distance = 100.0;
-    float matches_threshold = 100.0;
+    // Parameters for map1 and map2 integration
+    float max_pairwise_distance = 35.0;
+    float matches_threshold = 35.0;
 
     if(argc <= 3){
       cerr << "error: format <inputfile1> <inputfile2> <outputfile>" << endl;
@@ -55,6 +57,7 @@ int main(int argc, char** argv)
 
     // create the stitched map
     StitchedMap map(images[0],images[1], max_pairwise_distance, matches_threshold);
+    
     // write to outfile if applicable
     if (outfile.size() != 0) {
       imwrite(outfile, map.get_stitch());
@@ -62,18 +65,15 @@ int main(int argc, char** argv)
 
     if (outfile.size() == 0 || verbose) { // generate some output
       cout << "rotation: "          << map.rotation << endl
-          << "translation (x,y): " << map.transx << ", " << map.transy << endl
-          << "matrix: "            << map.H << endl;
+           << "translation (x,y): " << map.transx   << ", " << map.transy << endl
+           << "matrix: "            << map.H        << endl;
     }
 
     if (verbose) {
       namedWindow("wrap"); imshow("wrap", map.get_stitch()); imwrite("stitch.pgm", map.get_stitch());
       namedWindow("debug"); imshow("debug", map.get_debug()); imwrite("debug.pgm", map.get_debug());
       waitKey(5000);
-      // while ((waitKey(0)&255) != 10) // RETURN
-      //   ;
     }
-    //usleep(10000000);
   }
   return 0;
 }
