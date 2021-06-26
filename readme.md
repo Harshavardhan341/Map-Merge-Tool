@@ -36,17 +36,17 @@ imwrite_('debug.pgm'): can't write data: OpenCV(4.1.1) /home/nvidia/host/build_o
 ![117107003-d80aad00-adbb-11eb-9d4c-1b53bc453d72](https://user-images.githubusercontent.com/52307432/117110212-beb82f80-adc0-11eb-8c70-e49bf1c09bd2.png)
 
 ## Create yaml file
-マップはYAMLファイルの設定と、マップ本体の画像ファイルのペアで管理されます。  
+The map is managed by a pair of settings in a YAML file and an image file of the map itself.  
 
-画像ファイルはグレーが濃いほど障害物として扱われます。  
-そのスレッショルドはYAMLファイルで決定します。  
-画像ファイルはカラーでもグレーでもどっちでもいいみたいです。  
+The darker the gray in the image file, the more obstacles are treated as obstacles.  
+Its threshold is determined by the YAML file.  
+The image file can be color or gray, it doesn't matter.  
 
-ROSメッセージとしてはoccupancyは0~100の数値（0がフリーで100が完全に壁)で表されます。また、未観測領域は-1になります。  
+As for the ROS message, occupancy is represented by a number between 0 and 100 (0 being free and 100 being a complete wall). Also, unobserved areas are set to -1.  
 
-画像ファイルのフォーマットはSDLで読み込めるものならなんでもいいです。  
+The format of the image file can be anything that can be read by SDL.  
 
-YAMLファイルは以下のようなかんじです。  
+The YAML file looks like the following. 
 
 image: testmap.png  
 resolution: 0.1  
@@ -55,13 +55,14 @@ occupied_thresh: 0.65
 free_thresh: 0.196  
 negate: 0  
 
-image: イメージファイル（YAMLからの相対・もしくは絶対パス）  
+image: Image file (relative or absolute path from YAML)  
 resolution: [meters/pixel]  
-origin: マップの左下端の座標(x,y,θ)  
-occupied_thresh: この数値より大きいところを障害物とみなす  
-free_thresh: この数値より小さいところをフリースペースとみなす  
-negate: 白黒反転させるかどうか  
+origin: Coordinates of the lower left edge of the map (x,y,θ)
+occupied_thresh: Anything larger than this number is considered an obstacle  
+free_thresh: Areas smaller than this number are considered free space.    
+negate: Whether to invert black and white or not
 
+Example
 ```yaml
 image: output.pgm
 resolution: 0.050000
