@@ -97,8 +97,28 @@ StitchedMap::StitchedMap(Mat &img1, Mat &img2, float max_pairwise_distance)
 
   if (coord1.size() == 0)
     ;
-  // 5. find homography
-  H = estimateRigidTransform(coord2, coord1, false);
+  /*
+    * ***********************************************************************
+    * Mat estimateRigidTransform(const Mat& srcpt, const Mat& dstpt, bool fullAffine)
+    * Find the optimal affine transformation between a set of 2D points.
+    * srcpt : The first two-dimensional point set
+    * dstpt : The second 2D point set of the same size and type as srcpt
+    * fullAffine : If it is true, the function finds the optimal affine transformation 
+    * without any additional constraints (i.e. 6 degrees of freedom). 
+    * Otherwise, it finds the transformation from a combination of translation, 
+    * rotation and isotropic scaling (i.e. 5 degrees of freedom).
+    * <Reference http://opencv.jp/opencv-2svn/cpp/structural_analysis_and_shape_descriptors.html>
+    * ***********************************************************************
+  */
+  // 5. find homography(Reference : http://amroamroamro.github.io/mexopencv/matlab/cv.estimateAffine2D.html)
+  //H = estimateRigidTransform(coord2, coord1, false);
+  //H = estimateAffinePartial2D(coord2, coord1);
+  H = estimateAffine2D(coord2, coord1);
+  
+  /* 
+    Affine transformation matrices H are of the form [a11 a12 b1; a21 a22 b2].
+    The specific affine transformation is calculated by [x; y] = [a11 a12; a21 a22] * [X; Y] + [b1; b2].
+  */
   // 6. calculate this stuff for information
   rotation = 180./M_PI*atan2(H.at<double>(0,1),H.at<double>(1,1)),
   transx   = H.at<double>(0,2),
@@ -107,8 +127,7 @@ StitchedMap::StitchedMap(Mat &img1, Mat &img2, float max_pairwise_distance)
   scaley   = sqrt(pow(H.at<double>(1,0),2)+pow(H.at<double>(1,1),2));
 }
 
-Mat
-StitchedMap::get_debug()
+Mat StitchedMap::get_debug()
 {
   Mat out;
   drawKeypoints(image1, kpv1, image1, Scalar(255,0,0));
@@ -117,8 +136,8 @@ StitchedMap::get_debug()
   return out;
 }
 
-Mat // return the stitched maps
-StitchedMap::get_stitch()
+// return the stitched maps
+Mat StitchedMap::get_stitch()
 {
   // create storage for new image and get transformations
   Mat image(image2.size(), image2.type());
