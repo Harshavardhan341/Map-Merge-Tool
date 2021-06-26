@@ -17,7 +17,7 @@ class StitchedMap
 {
 public:
   // Constructor and Destructor
-  StitchedMap(Mat &im1, Mat &im2, float max_distance=5.);
+  StitchedMap(Mat &im1, Mat &im2, float max_distance, float matches_threshold);
   ~StitchedMap();
   
   // Represents an array of arbitrary dimensions in cv::Mat

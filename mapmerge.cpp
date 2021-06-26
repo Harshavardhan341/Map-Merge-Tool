@@ -1,7 +1,7 @@
 #include "mapmerge.h"
 #include "math.h"
 
-StitchedMap::StitchedMap(Mat &img1, Mat &img2, float max_pairwise_distance)
+StitchedMap::StitchedMap(Mat &img1, Mat &img2, float max_pairwise_distance, float matches_threshold)
 {
   // load images, TODO: check that they're grayscale and Full Image Copy
   image1 = img1.clone();
@@ -46,10 +46,10 @@ StitchedMap::StitchedMap(Mat &img1, Mat &img2, float max_pairwise_distance)
     
     /*
       Select feature points one by one in order, and if their Hamming distance 
-      is more than 30, do the following. 
+      is more than matches_threshold, do the following. 
       Otherwise, return to the for loop without executing the following.
     */
-    if (matches[i].distance > 30)
+    if (matches[i].distance > matches_threshold)
       continue;
 
     // Compare selected feature points with all feature points
@@ -57,7 +57,7 @@ StitchedMap::StitchedMap(Mat &img1, Mat &img2, float max_pairwise_distance)
       KeyPoint a2 = kpv1[matches[j].queryIdx],
                b2 = kpv2[matches[j].trainIdx];
 
-      if (matches[j].distance > 30)
+      if (matches[j].distance > matches_threshold)
         continue;
       
       /*
@@ -144,7 +144,11 @@ Mat StitchedMap::get_stitch()
   warpAffine(image2,image,H,image.size());
 
   // blend image1 onto the transformed image2
-  addWeighted(image,.5,image1,.5,0.0,image);
+  // Reference : https://qiita.com/exp/items/5ecbda091c1d42aa1b20
+  double alpha = 0.5;
+  double beta  = 1.0 - alpha;
+  double gamma = 0.0;
+  addWeighted(image,alpha,image1,beta,gamma,image);
 
   return image;
 }
