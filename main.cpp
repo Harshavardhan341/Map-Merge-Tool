@@ -19,6 +19,7 @@ int main(int argc, char** argv)
   string outfile = "final.pgm";
   vector<string> infiles;
   float max_distance = 5.;
+  //float max_distance = 0.5;
 
   // load the images
   if(argc <= 3){

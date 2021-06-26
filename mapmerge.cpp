@@ -3,7 +3,7 @@
 
 StitchedMap::StitchedMap(Mat &img1, Mat &img2, float max_pairwise_distance)
 {
-  // load images, TODO: check that they're grayscale
+  // load images, TODO: check that they're grayscale and Full Image Copy
   image1 = img1.clone();
   image2 = img2.clone();
 
@@ -22,8 +22,9 @@ StitchedMap::StitchedMap(Mat &img1, Mat &img2, float max_pairwise_distance)
 
   // 3. match keypoints
   dematc.match(dscv1, dscv2, matches);
+
   // 4. find matching point pairs with same distance in both images
-  for (size_t i=0; i<matches.size(); i++) {
+  for (size_t i=0; i<(int)matches.size(); i++) {
     KeyPoint a1 = kpv1[matches[i].queryIdx],
              b1 = kpv2[matches[i].trainIdx];
 
