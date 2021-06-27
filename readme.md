@@ -58,3 +58,6 @@ occupied_thresh: 0.65
 free_thresh: 0.196
 ```
 -------------------------------------------
+
+## Points to note
+The two maps you want to integrate need to have some degree of overfitting to be able to integrate well.
