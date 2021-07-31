@@ -29,16 +29,7 @@ StitchedMap::StitchedMap(Mat &img1, Mat &img2, float max_pairwise_distance, floa
 
   // 4. find matching point pairs with same distance in both images
   for (size_t i = 0; i < (int)matches.size(); i++) {
-    /*
-    * ***********************************************************************
-    * matches -> list of objects of type DMatch
-    * DMatch.distance -> distance between feature descriptors(The lower the distance, the better the matching)
-    * DMatch.trainIdx -> Index of the descriptor in the training descriptor(reference data) 
-    * DMatch.queryIdx -> Index of the descriptor in the query descripto(search data)
-    * DMatch.imgIdx -> Index of the training image
-    * <Reference https://qiita.com/komiya_____/items/c024e38959e389442dd0>
-    * ***********************************************************************
-    */
+
     /*
       The target image for finding feature points where query is the axis image 
       and train is similar to query. In this case, image1 is query and image2 is train.
@@ -62,18 +53,7 @@ StitchedMap::StitchedMap(Mat &img1, Mat &img2, float max_pairwise_distance, floa
       if (matches[j].distance > matches_threshold)
         continue;
       
-      /*
-      * ***********************************************************************
-      * The Keypoint object has the following attributes
-      * pt: Coordinates of the keypoint
-      * size: Diameter of the key area around the keypoint
-      * angle: The calculated direction of the keypoint (or -1 if it cannot be calculated)
-      * response: The response when the strongest keypoint is selected.
-      * octave: octave from which the keypoint is extracted (pyramid hierarchy)
-      * class_id: Object class
-      * <Reference https://wonderfuru.com/opencv%E3%81%A7%E7%94%BB%E5%83%8F%E3%83%9E%E3%83%83%E3%83%81%E3%83%B3%E3%82%B0%E3%82%92%E3%81%99%E3%82%8B/>
-      * ***********************************************************************
-      */
+
       /*
         For each selected feature point, calculate the pairwise distance 
         to all feature points, and if it is greater than or equal to max_pairwise_distance 
@@ -99,22 +79,7 @@ StitchedMap::StitchedMap(Mat &img1, Mat &img2, float max_pairwise_distance, floa
 
   if (coord1.size() == 0)
     ;
-  /*
-    * ***********************************************************************
-    * Mat estimateRigidTransform(const Mat& srcpt, const Mat& dstpt, bool fullAffine)
-    * Find the optimal affine transformation between a set of 2D points.
-    * srcpt : The first two-dimensional point set
-    * dstpt : The second 2D point set of the same size and type as srcpt
-    * fullAffine : If it is true, the function finds the optimal affine transformation 
-    * without any additional constraints (i.e. 6 degrees of freedom). 
-    * Otherwise, it finds the transformation from a combination of translation, 
-    * rotation and isotropic scaling (i.e. 5 degrees of freedom).
-    * <Reference http://opencv.jp/opencv-2svn/cpp/structural_analysis_and_shape_descriptors.html>
-    * ***********************************************************************
-  */
-  // 5. find homography(Reference : http://amroamroamro.github.io/mexopencv/matlab/cv.estimateAffine2D.html)
-  //H = estimateRigidTransform(coord2, coord1, false);
-  //H = estimateAffinePartial2D(coord2, coord1);
+
   H = estimateAffine2D(coord2, coord1);
   
   /* 

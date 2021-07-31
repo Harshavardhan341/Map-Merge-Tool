@@ -15,8 +15,8 @@ using namespace std;
 int main(int argc, char** argv)
 { 
     string outfile        = "final.pgm";
-    string infiles        = "figure/room3.pgm";
-    string target_inflies = "figure/room4.pgm";
+    string infiles        = argv[1];
+    string target_inflies = argv[2];
 
     // Loading images
     cv::Mat image = imread(infiles.c_str(), 0); // 0 = grayscale, 1 = colorscale

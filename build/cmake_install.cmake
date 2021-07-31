@@ -1,4 +1,4 @@
-# Install script for directory: /home/ramune/catkin_ws/src/Map-Merge-Tool
+# Install script for directory: /home/hk/Map-Merge-Tool
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/ramune/catkin_ws/src/Map-Merge-Tool/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/hk/Map-Merge-Tool/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
