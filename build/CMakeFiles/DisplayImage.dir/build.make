@@ -60,15 +60,15 @@ include CMakeFiles/DisplayImage.dir/flags.make
 CMakeFiles/DisplayImage.dir/main.cpp.o: CMakeFiles/DisplayImage.dir/flags.make
 CMakeFiles/DisplayImage.dir/main.cpp.o: ../main.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/hk/Map-Merge-Tool/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/DisplayImage.dir/main.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/DisplayImage.dir/main.cpp.o -c /home/hk/Map-Merge-Tool/main.cpp
+	/usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/DisplayImage.dir/main.cpp.o -c /home/hk/Map-Merge-Tool/main.cpp
 
 CMakeFiles/DisplayImage.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/DisplayImage.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/hk/Map-Merge-Tool/main.cpp > CMakeFiles/DisplayImage.dir/main.cpp.i
+	/usr/bin/g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/hk/Map-Merge-Tool/main.cpp > CMakeFiles/DisplayImage.dir/main.cpp.i
 
 CMakeFiles/DisplayImage.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DisplayImage.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/hk/Map-Merge-Tool/main.cpp -o CMakeFiles/DisplayImage.dir/main.cpp.s
+	/usr/bin/g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/hk/Map-Merge-Tool/main.cpp -o CMakeFiles/DisplayImage.dir/main.cpp.s
 
 CMakeFiles/DisplayImage.dir/main.cpp.o.requires:
 
@@ -84,15 +84,15 @@ CMakeFiles/DisplayImage.dir/main.cpp.o.provides.build: CMakeFiles/DisplayImage.d
 CMakeFiles/DisplayImage.dir/mapmerge.cpp.o: CMakeFiles/DisplayImage.dir/flags.make
 CMakeFiles/DisplayImage.dir/mapmerge.cpp.o: ../mapmerge.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/hk/Map-Merge-Tool/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/DisplayImage.dir/mapmerge.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/DisplayImage.dir/mapmerge.cpp.o -c /home/hk/Map-Merge-Tool/mapmerge.cpp
+	/usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/DisplayImage.dir/mapmerge.cpp.o -c /home/hk/Map-Merge-Tool/mapmerge.cpp
 
 CMakeFiles/DisplayImage.dir/mapmerge.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/DisplayImage.dir/mapmerge.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/hk/Map-Merge-Tool/mapmerge.cpp > CMakeFiles/DisplayImage.dir/mapmerge.cpp.i
+	/usr/bin/g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/hk/Map-Merge-Tool/mapmerge.cpp > CMakeFiles/DisplayImage.dir/mapmerge.cpp.i
 
 CMakeFiles/DisplayImage.dir/mapmerge.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DisplayImage.dir/mapmerge.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/hk/Map-Merge-Tool/mapmerge.cpp -o CMakeFiles/DisplayImage.dir/mapmerge.cpp.s
+	/usr/bin/g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/hk/Map-Merge-Tool/mapmerge.cpp -o CMakeFiles/DisplayImage.dir/mapmerge.cpp.s
 
 CMakeFiles/DisplayImage.dir/mapmerge.cpp.o.requires:
 

@@ -60,15 +60,15 @@ include CMakeFiles/ResizeImage.dir/flags.make
 CMakeFiles/ResizeImage.dir/resize_image.cpp.o: CMakeFiles/ResizeImage.dir/flags.make
 CMakeFiles/ResizeImage.dir/resize_image.cpp.o: ../resize_image.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/hk/Map-Merge-Tool/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/ResizeImage.dir/resize_image.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ResizeImage.dir/resize_image.cpp.o -c /home/hk/Map-Merge-Tool/resize_image.cpp
+	/usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ResizeImage.dir/resize_image.cpp.o -c /home/hk/Map-Merge-Tool/resize_image.cpp
 
 CMakeFiles/ResizeImage.dir/resize_image.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ResizeImage.dir/resize_image.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/hk/Map-Merge-Tool/resize_image.cpp > CMakeFiles/ResizeImage.dir/resize_image.cpp.i
+	/usr/bin/g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/hk/Map-Merge-Tool/resize_image.cpp > CMakeFiles/ResizeImage.dir/resize_image.cpp.i
 
 CMakeFiles/ResizeImage.dir/resize_image.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ResizeImage.dir/resize_image.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/hk/Map-Merge-Tool/resize_image.cpp -o CMakeFiles/ResizeImage.dir/resize_image.cpp.s
+	/usr/bin/g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/hk/Map-Merge-Tool/resize_image.cpp -o CMakeFiles/ResizeImage.dir/resize_image.cpp.s
 
 CMakeFiles/ResizeImage.dir/resize_image.cpp.o.requires:
 
