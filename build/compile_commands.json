@@ -1,0 +1,17 @@
+[
+{
+  "directory": "/home/hk/Map-Merge-Tool/build",
+  "command": "/usr/bin/g++-7   -isystem /usr/local/include/opencv4  -g   -std=gnu++11 -o CMakeFiles/DisplayImage.dir/main.cpp.o -c /home/hk/Map-Merge-Tool/main.cpp",
+  "file": "/home/hk/Map-Merge-Tool/main.cpp"
+},
+{
+  "directory": "/home/hk/Map-Merge-Tool/build",
+  "command": "/usr/bin/g++-7   -isystem /usr/local/include/opencv4  -g   -std=gnu++11 -o CMakeFiles/DisplayImage.dir/mapmerge.cpp.o -c /home/hk/Map-Merge-Tool/mapmerge.cpp",
+  "file": "/home/hk/Map-Merge-Tool/mapmerge.cpp"
+},
+{
+  "directory": "/home/hk/Map-Merge-Tool/build",
+  "command": "/usr/bin/g++-7   -isystem /usr/local/include/opencv4  -g   -std=gnu++11 -o CMakeFiles/ResizeImage.dir/resize_image.cpp.o -c /home/hk/Map-Merge-Tool/resize_image.cpp",
+  "file": "/home/hk/Map-Merge-Tool/resize_image.cpp"
+}
+]
